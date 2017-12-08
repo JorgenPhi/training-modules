@@ -12,9 +12,9 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <nav class="light-blue lighten-1" role="navigation">
+        <nav class="teal lighten-1" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">{{ config('app.name', 'Module Based Training') }}</a>
+                <a id="logo-container" href="{{ url('/') }}" class="brand-logo">{{ config('app.name', 'Module Based Training') }}</a>
                 <ul class="right hide-on-med-and-down">
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
@@ -69,7 +69,7 @@
                 @yield('content')
             </div>
         </div>
-        <footer class="page-footer light-blue">
+        <footer class="page-footer teal">
             <div class="footer-copyright">
                 <div class="container">
                     <a class="orange-text text-lighten-3" href="https://github.com/JorgenPhi">&copy; JorgenPhi/MBT</a>
