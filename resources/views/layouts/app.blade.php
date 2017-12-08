@@ -65,8 +65,17 @@
             </div>
         </nav>
         <div class="container">
-            @yield('content')
+            <div class="section">
+                @yield('content')
+            </div>
         </div>
+        <footer class="page-footer light-blue">
+            <div class="footer-copyright">
+                <div class="container">
+                    <a class="orange-text text-lighten-3" href="https://github.com/JorgenPhi">&copy; JorgenPhi/MBT</a>
+                </div>
+            </div>
+        </footer>
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
