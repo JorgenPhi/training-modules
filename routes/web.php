@@ -17,4 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'PageController@index')->name('home');
+// "Pages" pages :^)
+Route::get('/', 'PageController@index');
+
+// Admin pages
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/modules', 'AdminController@modules');
+Route::get('/admin/users', 'AdminController@users');
+
+// User pages
+Route::get('/modules', 'UserController@moduleprogress');
+Route::get('/modules/{id}', 'UserController@modules');
+Route::get('/modules/{id}/quiz', 'UserController@quiz');
+Route::post('/modules/{id}/quiz', 'UserController@quizpost');
+Route::get('/modules/{id}/quiz/results', 'UserController@quizresults');

@@ -15,4 +15,14 @@ class ModulesController extends Controller
     {
         $this->middleware('auth');
     }
+
+    // ModuleProgress
+
+    // Modules (view 1 module)
+
+    // Quizzes
+
+    // Quizzes (POST)
+
+    // QuizResults
 }

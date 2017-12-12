@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ModuleProgressController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -12,7 +12,12 @@ class ModuleProgressController extends Controller
      * @return void
      */
     public function __construct()
+    {   
+        $this->middleware('admin'); 
+    }
+
+    public function index()
     {
-        $this->middleware('auth');
+        return view('pages.admin.index');
     }
 }
