@@ -24,8 +24,8 @@ class AdminModulesController extends Controller
      */
     public function index()
     {
-        $modules = Module::all();
-        return view('pages.admin.modules')->with('modules', $modules);
+        $modules = Module::paginate(20);
+        return view('pages.admin.module.list', ['modules' => $modules]);
     }
 
     /**
@@ -35,7 +35,7 @@ class AdminModulesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.module.create');
     }
 
     /**
@@ -57,7 +57,8 @@ class AdminModulesController extends Controller
      */
     public function show($id)
     {
-        //
+        $module = Modules::find($id);
+        return view('pages.admin.module.edit', ['module' => $module, 'isediting' => false]);
     }
 
     /**
@@ -68,7 +69,8 @@ class AdminModulesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $module = Modules::find($id);
+        return view('pages.admin.module.edit', ['module' => $module, 'isediting' => true]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminUsersController extends Controller
 {
@@ -15,7 +16,7 @@ class AdminUsersController extends Controller
     {   
         $this->middleware('admin'); 
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +24,8 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = Users::paginate(20);
+        return view('pages.admin.user.list',['users' => $users]);
     }
 
     /**
@@ -33,7 +35,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.user.create');
     }
 
     /**
@@ -55,7 +57,8 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Users::find($id);
+        return view('pages.admin.user.edit', ['user' => $user, 'isediting' => false]);
     }
 
     /**
@@ -66,7 +69,8 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Users::find($id);
+        return view('pages.admin.user.edit', ['user' => $user, 'isediting' => true]);
     }
 
     /**
