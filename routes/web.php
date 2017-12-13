@@ -22,8 +22,8 @@ Route::get('/', 'PageController@index');
 
 // Admin pages
 Route::get('/admin', 'AdminController@index');
-Route::get('/admin/modules', 'AdminController@modules');
-Route::get('/admin/users', 'AdminController@users');
+Route::resource('/admin/modules', 'AdminModulesController');
+Route::resource('/admin/users', 'AdminUsersController');
 
 // User pages
 Route::get('/modules', 'UserController@moduleprogress');
