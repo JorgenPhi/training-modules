@@ -24,7 +24,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users = Users::paginate(20);
+        $users = User::paginate(20);
         return view('pages.admin.user.list',['users' => $users]);
     }
 
@@ -57,7 +57,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
         return view('pages.admin.user.edit', ['user' => $user, 'isediting' => false]);
     }
 
@@ -69,7 +69,7 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
         return view('pages.admin.user.edit', ['user' => $user, 'isediting' => true]);
     }
 
