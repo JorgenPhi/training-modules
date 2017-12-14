@@ -21,7 +21,7 @@
                 <td>{{ htmlspecialchars($user->email) }}</td>
                 <td>{{ $user->admin ? 'Yes' : '' }}</td>
                 <td>{{ $user->created_at }}</td>
-                <td><a href="{{ url('/admin/users/'.$user->id) }}">Edit</a></td>
+                <td><a href="{{ url('/admin/users/'.$user->id.'/edit') }}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
