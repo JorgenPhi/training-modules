@@ -35,7 +35,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.user.create');
+        return view('pages.admin.user.edit', ['user' => null, 'iscreating' => true]);
     }
 
     /**
@@ -58,7 +58,7 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user, 'isediting' => false]);
+        return view('pages.admin.user.edit', ['user' => $user]);
     }
 
     /**
