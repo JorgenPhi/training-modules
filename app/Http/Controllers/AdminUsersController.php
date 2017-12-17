@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 class AdminUsersController extends Controller
 {
@@ -35,7 +36,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.user.edit', ['user' => null, 'iscreating' => true]);
+        return view('pages.admin.user.edit', ['user' => null, 'title' => "New User", 'action' => 'create', 'options' => []]);
     }
 
     /**
@@ -58,7 +59,7 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user]);
+        return view('pages.admin.user.edit', ['user' => $user, 'title' => "View User", 'action' => 'show', 'options' => ['disabled' => '']]);
     }
 
     /**
@@ -70,7 +71,7 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user, 'isediting' => true]);
+        return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit', 'options' => []]);
     }
 
     /**
@@ -82,7 +83,8 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit', 'options' => []]);
     }
 
     /**

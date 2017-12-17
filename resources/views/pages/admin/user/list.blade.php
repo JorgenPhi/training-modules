@@ -10,6 +10,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Admin?</th>
+                <th>Needs Activation?</th>
                 <th>Registration Date</th>
                 <th>Edit</th>
             </tr>
@@ -20,6 +21,7 @@
                 <td>{{ htmlspecialchars($user->name) }}</td>
                 <td>{{ htmlspecialchars($user->email) }}</td>
                 <td>{{ $user->admin ? 'Yes' : '' }}</td>
+                <td>{{ $user->active ? '' : 'X' }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td><a href="{{ url('/admin/users/'.$user->id.'/edit') }}">Edit</a></td>
             </tr>
