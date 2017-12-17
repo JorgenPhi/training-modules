@@ -36,7 +36,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.user.edit', ['user' => null, 'title' => "New User", 'action' => 'create', 'options' => []]);
+        return view('pages.admin.user.edit', ['user' => null, 'title' => "Create User", 'action' => 'create', 'disabled' => false]);
     }
 
     /**
@@ -59,7 +59,7 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user, 'title' => "View User", 'action' => 'show', 'options' => ['disabled' => '']]);
+        return view('pages.admin.user.edit', ['user' => $user, 'title' => "View User", 'action' => 'show', 'disabled' => true]);
     }
 
     /**
@@ -71,7 +71,7 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit', 'options' => []]);
+        return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit',  'disabled' => false]);
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit', 'options' => []]);
+        return '123';
     }
 
     /**
