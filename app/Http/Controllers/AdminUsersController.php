@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\Validator;
 
 class AdminUsersController extends Controller
 {
@@ -47,7 +46,12 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users'
+        ]);
+        return true;
     }
 
     /**

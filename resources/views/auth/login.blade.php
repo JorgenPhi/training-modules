@@ -41,9 +41,8 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me <?php // TODO! ?>
-                                </label>
+                                    <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <label for="remember" class="active">Remember Me</label>
                             </div>
                         </div>
                     </div>

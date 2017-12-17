@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($errors->any())
+@if ($errors->any()) <?php // TODO ?>
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -23,19 +23,19 @@
                     <div class="row">
                         <div class="input-field col s12">
                             {{ Form::label('name', 'Name') }}
-                            {{ Form::text('name', old('name'), array_merge(['class' => 'validate'], $disabled ? array('disabled' => '') : array())) }}
+                            {{ Form::text('name', old('name'), array_merge(['class' => 'validate', 'required' => ''], $disabled ? array('disabled' => '') : array())) }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             {{ Form::label('company', 'Company Name') }}
-                            {{ Form::text('company', old('company'), array_merge(['class' => 'validate'], $disabled ? array('disabled' => '') : array())) }}
+                            {{ Form::text('company', old('company'), array_merge(['class' => 'validate', 'required' => ''], $disabled ? array('disabled' => '') : array())) }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             {{ Form::label('email', 'Email') }}
-                            {{ Form::email('email', old('email'), array_merge(['class' => 'validate'], $disabled ? array('disabled' => '') : array())) }}
+                            {{ Form::email('email', old('email'), array_merge(['class' => 'validate', 'required' => ''], $disabled ? array('disabled' => '') : array())) }}
                         </div>
                     </div>
                     <div class="row">
