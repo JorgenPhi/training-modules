@@ -12,3 +12,6 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+form {
+    display: inline;
+}

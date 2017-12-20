@@ -61,11 +61,14 @@
                     </div>
                     @if ($action == 'create' || $action == 'edit')
                         <button type="submit" class="waves-effect waves-light btn"> {{ $title }}</button>
-                        @if ($action == 'edit')
-                            <button type="submit" class="red right waves-effect waves-light btn"> {{ "Delete User" }}</button><?php /* TODO */ ?>
-                        @endif
                     @endif
                 {!! Form::close() !!}
+                @if ($action == 'edit')
+                    {!! Form::open(['action' => ['AdminUsersController@destroy', $user->id], 'method' => 'POST']) !!}
+                        {!! Form::hidden('_method', 'DELETE') !!}
+                        <button type="submit" class="red right waves-effect waves-light btn"> {{ "Delete User" }}</button>
+                    {!! Form::close() !!}    
+                @endif
             </div>
         </div>
     <script>

@@ -24,7 +24,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
+        $users = User::paginate(20); // TODO
         return view('pages.admin.user.list',['users' => $users]);
     }
 
@@ -156,6 +156,11 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if(!$user) {
+            App:abort(404);
+        }
+        $user->delete();
+        return redirect('/admin/users')->with('success', 'User deleted.');
     }
 }
