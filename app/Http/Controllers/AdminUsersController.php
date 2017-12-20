@@ -81,6 +81,9 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        if(!$user) {
+            App:abort(404);
+        }
         return view('pages.admin.user.edit', ['user' => $user, 'title' => "View User", 'action' => 'show', 'disabled' => true]);
     }
 
@@ -93,6 +96,9 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        if(!$user) {
+            App:abort(404);
+        }
         return view('pages.admin.user.edit', ['user' => $user, 'title' => "Edit User", 'action' => 'edit',  'disabled' => false]);
     }
 
@@ -106,6 +112,9 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+        if(!$user) {
+            App:abort(404);
+        }
         if(trim($request->input('password')) !== '') {
             $this->validate($request, [
                 'name' => 'required|string|max:255',
