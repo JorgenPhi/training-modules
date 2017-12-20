@@ -49,9 +49,27 @@ class AdminUsersController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'company' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users'
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6'
         ]);
-        return true;
+
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->company = $request->input('company');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        if (isset($request->admin)) {
+            $user->admin = true;
+        } else {
+            $user->admin = false;
+        }
+        if (isset($request->active)) {
+            $user->active = true;
+        } else {
+            $user->active = false;
+        }
+        $user->save();
+        return redirect('/admin/users')->with('success', 'User created.');
     }
 
     /**
@@ -88,7 +106,37 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        return '123';
+        if(trim($request->input('password')) !== '') {
+            $this->validate($request, [
+                'name' => 'required|string|max:255',
+                'company' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+                'password' => 'required|string|min:6'
+            ]);
+            $user->password = bcrypt($request->input('password'));
+        } else {
+            $this->validate($request, [
+                'name' => 'required|string|max:255',
+                'company' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,'.$user->id
+            ]);
+        }
+
+        $user->name = $request->input('name');
+        $user->company = $request->input('company');
+        $user->email = $request->input('email');
+        if (isset($request->admin)) {
+            $user->admin = true;
+        } else {
+            $user->admin = false;
+        }
+        if (isset($request->active)) {
+            $user->active = true;
+        } else {
+            $user->active = false;
+        }
+        $user->save();
+        return redirect('/admin/users')->with('success', 'User updated.');
     }
 
     /**

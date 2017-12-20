@@ -29,6 +29,7 @@
         </tbody>
     </table>
     @else
-        <p>There are no users... ?
+        <p>There are no users... ?</p>
     @endif
+    <a href="{{ url('/admin/users/create') }}" class="waves-effect waves-light btn">Create User</a>
 @endsection
