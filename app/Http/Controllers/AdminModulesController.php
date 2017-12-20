@@ -24,7 +24,7 @@ class AdminModulesController extends Controller
      */
     public function index()
     {
-        $modules = Module::paginate(20);
+        $modules = Module::paginate(20); // TODO
         return view('pages.admin.module.list', ['modules' => $modules]);
     }
 
@@ -35,7 +35,7 @@ class AdminModulesController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.module.create');
+        return view('pages.admin.module.edit', ['module' => null, 'title' => "Create Module", 'action' => 'create', 'disabled' => false]);
     }
 
     /**
@@ -46,7 +46,16 @@ class AdminModulesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'body' => 'required|string|max:16777215'
+        ]);
+
+        $module = new Module;
+        $module->title = $request->input('title');
+        $module->body = $request->input('body');
+        $module->save();
+        return redirect('/admin/modules')->with('success', 'Module created.');
     }
 
     /**
@@ -57,8 +66,8 @@ class AdminModulesController extends Controller
      */
     public function show($id)
     {
-        $module = Modules::find($id);
-        return view('pages.admin.module.edit', ['module' => $module, 'isediting' => false]);
+        $module = Module::find($id);
+        return view('pages.admin.module.edit', ['module' => $module, 'title' => "View Module", 'action' => 'show', 'disabled' => true]);
     }
 
     /**
@@ -69,8 +78,8 @@ class AdminModulesController extends Controller
      */
     public function edit($id)
     {
-        $module = Modules::find($id);
-        return view('pages.admin.module.edit', ['module' => $module, 'isediting' => true]);
+        $module = Module::find($id);
+        return view('pages.admin.module.edit', ['module' => $module, 'title' => "Edit Module", 'action' => 'edit', 'disabled' => false]);
     }
 
     /**
@@ -82,7 +91,19 @@ class AdminModulesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $module = Module::find($id);
+        if(!$module) {
+            App:abort(404);
+        }
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'body' => 'required|string|max:16777215'
+        ]);
+
+        $module->title = $request->input('title');
+        $module->body = $request->input('body');
+        $module->save();
+        return redirect('/admin/modules')->with('success', 'Module updated.');
     }
 
     /**
@@ -93,6 +114,11 @@ class AdminModulesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $module = Module::find($id);
+        if(!$module) {
+            App:abort(404);
+        }
+        $module->delete();
+        return redirect('/admin/modules')->with('success', 'Module deleted.');
     }
 }
