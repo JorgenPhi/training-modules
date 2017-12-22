@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Module;
+use App\Question;
 
-class AdminModulesController extends Controller
+class AdminQuizzesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,10 +23,14 @@ class AdminModulesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($module_id)
     {
-        $modules = Module::paginate(20); // TODO
-        return view('pages.admin.module.list', ['modules' => $modules]);
+        $module = Module::find($module_id);
+        if(!$module) {
+            App:abort(404);
+        }
+        $questions = $module->questions;
+        return view('pages.admin.module.quiz.list', ['questions' => $questions]);
     }
 
     /**
@@ -33,9 +38,13 @@ class AdminModulesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($module_id)
     {
-        return view('pages.admin.module.edit', ['module' => null, 'title' => "Create Module", 'action' => 'create', 'disabled' => false]);
+        $module = Module::find($module_id);
+        if(!$module) {
+            App:abort(404);
+        }
+        return view('pages.admin.module.quiz.edit', ['question' => null, 'title' => "Add Question", 'action' => 'create', 'disabled' => false]);
     }
 
     /**
@@ -66,11 +75,13 @@ class AdminModulesController extends Controller
      */
     public function show($id)
     {
-        $module = Module::find($id);
+        return var_dump($id, $module_id);
+        $module = Module::find($module_id);
         if(!$module) {
             App:abort(404);
         }
-        return view('pages.admin.module.edit', ['module' => $module, 'title' => "View Module", 'action' => 'show', 'disabled' => true]);
+        $question = Question::find($id);
+        return view('pages.admin.module.quiz.edit', ['question' => $question, 'title' => "View Question", 'action' => 'show', 'disabled' => true]);
     }
 
     /**
@@ -81,11 +92,8 @@ class AdminModulesController extends Controller
      */
     public function edit($id)
     {
-        $module = Module::find($id);
-        if(!$module) {
-            App:abort(404);
-        }
-        return view('pages.admin.module.edit', ['module' => $module, 'title' => "Edit Module", 'action' => 'edit', 'disabled' => false]);
+        $question = Question::find($id);
+        return view('pages.admin.module.quiz.edit', ['question' => $question, 'title' => "Edit Question", 'action' => 'edit', 'disabled' => false]);
     }
 
     /**
@@ -97,7 +105,7 @@ class AdminModulesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $module = Module::find($id);
+        $module = Question::find($id);
         if(!$module) {
             App:abort(404);
         }
@@ -120,11 +128,11 @@ class AdminModulesController extends Controller
      */
     public function destroy($id)
     {
-        $module = Module::find($id);
-        if(!$module) {
+        $question = Question::find($id);
+        if(!$question) {
             App:abort(404);
         }
-        $module->delete();
+        $question->delete();
         return redirect('/admin/modules')->with('success', 'Module deleted.');
     }
 }

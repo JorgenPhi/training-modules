@@ -2,7 +2,7 @@
 
 @section('content')
     <h5>Users:</h5>
-    @if(count($users) >= 1)
+    @if(count($users) > 0)
 
     <table>
         <thead>

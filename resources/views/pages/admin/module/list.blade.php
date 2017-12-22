@@ -2,7 +2,7 @@
 
 @section('content')
     <h5>Modules:</h5>
-    @if(count($modules) >= 1)
+    @if(count($modules) > 0)
         @foreach($modules as $module)
         <a class="card waves-teal waves-effect" style="width: 100%;" href="{{ url('/admin/modules/'.$module->id.'/edit') }}">
             <div class="card-content">

@@ -17,6 +17,11 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('module_id');
             $table->string('text');
+            $table->string('a1text');
+            $table->string('a2text');
+            $table->string('a3text');
+            $table->string('a4text');
+            $table->unsignedInteger('correct');
             $table->timestamps();
             $table->foreign('module_id')->references('id')->on('modules');
         });

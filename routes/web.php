@@ -23,6 +23,7 @@ Route::get('/', 'PageController@index');
 // Admin pages
 Route::get('/admin', 'AdminController@index');
 Route::resource('/admin/modules', 'AdminModulesController');
+Route::resource('/admin/modules/{module_id}/edit/quiz', 'AdminQuizzesController');
 Route::resource('/admin/users', 'AdminUsersController');
 
 // User pages
