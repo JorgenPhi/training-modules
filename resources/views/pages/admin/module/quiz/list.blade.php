@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h5>Questions:</h5>
     @if(count($questions) > 0)
-
     <table>
         <thead>
             <tr>
@@ -15,7 +13,7 @@
             @foreach($questions as $question)
             <tr>
                 <td>{{ htmlspecialchars($question->text) }}</td>
-                <td><a href="{{ url('/admin/users/'.$question->id.'/edit') }}">Edit</a></td>
+                <td><a href="{{ url('/admin/modules/'.$module->id.'/quiz/'.$question->id.'/edit') }}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
@@ -25,5 +23,5 @@
             <p>There are no questions... ?</p>
         </div>
     @endif
-    <a href="{{ url('/admin/users/create') }}" class="waves-effect waves-light btn">Create User</a>
+    <a href="{{ url('/admin/modules/'.$module->id.'/quiz/create') }}" class="waves-effect waves-light btn">Add Question</a>
 @endsection

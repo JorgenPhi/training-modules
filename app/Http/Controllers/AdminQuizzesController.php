@@ -30,7 +30,7 @@ class AdminQuizzesController extends Controller
             App:abort(404);
         }
         $questions = $module->questions;
-        return view('pages.admin.module.quiz.list', ['questions' => $questions]);
+        return view('pages.admin.module.quiz.list', ['module' => $module, 'questions' => $questions]);
     }
 
     /**
@@ -44,7 +44,7 @@ class AdminQuizzesController extends Controller
         if(!$module) {
             App:abort(404);
         }
-        return view('pages.admin.module.quiz.edit', ['question' => null, 'title' => "Add Question", 'action' => 'create', 'disabled' => false]);
+        return view('pages.admin.module.quiz.edit', ['module' => $module, 'question' => null, 'title' => "Add Question", 'action' => 'create', 'disabled' => false]);
     }
 
     /**
@@ -53,18 +53,32 @@ class AdminQuizzesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $module_id)
     {
+        $module = Module::find($module_id);
+        if(!$module) {
+            App:abort(404);
+        }
+
         $this->validate($request, [
-            'title' => 'required|string|max:255',
-            'body' => 'required|string|max:16777215'
+            'text' => 'required|string|max:255',
+            'a1text' => 'required|string|max:255',
+            'a2text' => 'required|string|max:255',
+            'a3text' => 'required|string|max:255',
+            'a4text' => 'required|string|max:255',
+            'correct' => 'required|integer'
         ]);
 
-        $module = new Module;
-        $module->title = $request->input('title');
-        $module->body = $request->input('body');
-        $module->save();
-        return redirect('/admin/modules')->with('success', 'Module created.');
+        $question = new Question;
+        $question->module_id = $module_id;
+        $question->text = $request->input('text');
+        $question->a1text = $request->input('a1text');
+        $question->a2text = $request->input('a2text');
+        $question->a3text = $request->input('a3text');
+        $question->a4text = $request->input('a4text');
+        $question->correct = $request->input('correct');
+        $question->save();
+        return redirect('/admin/modules/'.$module->id.'/quiz')->with('success', 'Question added.');
     }
 
     /**
@@ -73,15 +87,14 @@ class AdminQuizzesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($module_id, $question_id)
     {
-        return var_dump($id, $module_id);
         $module = Module::find($module_id);
-        if(!$module) {
+        $question = Question::find($question_id);
+        if(!$module || !$question || $question->module_id != $module_id) {
             App:abort(404);
         }
-        $question = Question::find($id);
-        return view('pages.admin.module.quiz.edit', ['question' => $question, 'title' => "View Question", 'action' => 'show', 'disabled' => true]);
+        return view('pages.admin.module.quiz.edit', ['module' => $module, 'question' => $question, 'title' => "View Question", 'action' => 'show', 'disabled' => true]);
     }
 
     /**
@@ -90,10 +103,14 @@ class AdminQuizzesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($module_id, $question_id)
     {
-        $question = Question::find($id);
-        return view('pages.admin.module.quiz.edit', ['question' => $question, 'title' => "Edit Question", 'action' => 'edit', 'disabled' => false]);
+        $module = Module::find($module_id);
+        $question = Question::find($question_id);
+        if(!$module || !$question || $question->module_id != $module_id) {
+            App:abort(404);
+        }
+        return view('pages.admin.module.quiz.edit', ['module' => $module, 'question' => $question, 'title' => "Edit Question", 'action' => 'edit', 'disabled' => false]);
     }
 
     /**
@@ -103,21 +120,32 @@ class AdminQuizzesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $module_id, $question_id)
     {
-        $module = Question::find($id);
-        if(!$module) {
+        $module = Module::find($module_id);
+        $question = Question::find($question_id);
+        if(!$module || !$question || $question->module_id != $module_id) {
             App:abort(404);
         }
+
         $this->validate($request, [
-            'title' => 'required|string|max:255',
-            'body' => 'required|string|max:16777215'
+            'text' => 'required|string|max:255',
+            'a1text' => 'required|string|max:255',
+            'a2text' => 'required|string|max:255',
+            'a3text' => 'required|string|max:255',
+            'a4text' => 'required|string|max:255',
+            'correct' => 'required|integer'
         ]);
 
-        $module->title = $request->input('title');
-        $module->body = $request->input('body');
-        $module->save();
-        return redirect('/admin/modules')->with('success', 'Module updated.');
+        $question->module_id = $module_id;
+        $question->text = $request->input('text');
+        $question->a1text = $request->input('a1text');
+        $question->a2text = $request->input('a2text');
+        $question->a3text = $request->input('a3text');
+        $question->a4text = $request->input('a4text');
+        $question->correct = $request->input('correct');
+        $question->save();
+        return redirect('/admin/modules/'.$module->id.'/quiz')->with('success', 'Question updated.');
     }
 
     /**
@@ -126,13 +154,14 @@ class AdminQuizzesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($module_id, $question_id)
     {
-        $question = Question::find($id);
-        if(!$question) {
+        $module = Module::find($module_id);
+        $question = Question::find($question_id);
+        if(!$module || !$question || $question->module_id != $module_id) {
             App:abort(404);
         }
         $question->delete();
-        return redirect('/admin/modules')->with('success', 'Module deleted.');
+        return redirect('/admin/modules/'.$module->id.'/quiz')->with('success', 'Question deleted.');
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    Welcome to the admin panel
+    <p>Welcome to the admin section. Please choose an option above.</p>
 @endsection
