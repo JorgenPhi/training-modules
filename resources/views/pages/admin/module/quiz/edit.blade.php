@@ -74,7 +74,7 @@
                 @if ($action == 'edit')
                     {!! Form::open(['action' => ['AdminQuizzesController@update', $module->id, $question->id], 'method' => 'POST']) !!}
                         {!! Form::hidden('_method', 'DELETE') !!}
-                        <button type="submit" class="red right waves-effect waves-light btn"> {{ "Delete Question" }}</button>
+                        <button type="submit" class="red right waves-effect waves-light btn">Delete Question</button>
                     {!! Form::close() !!}    
                 @endif
             </div>

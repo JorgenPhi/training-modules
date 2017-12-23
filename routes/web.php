@@ -28,7 +28,7 @@ Route::resource('/admin/modules/{module_id}/quiz', 'AdminQuizzesController');
 
 // User pages
 Route::get('/modules', 'UserController@moduleprogress');
-Route::get('/modules/{id}', 'UserController@modules');
+Route::get('/modules/{id}', 'UserController@module');
 Route::get('/modules/{id}/quiz', 'UserController@quiz');
 Route::post('/modules/{id}/quiz', 'UserController@quizpost');
 Route::get('/modules/{id}/quiz/results', 'UserController@quizresults');

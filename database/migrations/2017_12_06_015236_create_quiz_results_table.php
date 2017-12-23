@@ -19,7 +19,6 @@ class CreateQuizResultsTable extends Migration
             $table->unsignedInteger('module_id');
             $table->unsignedInteger('attempt');
             $table->unsignedInteger('correctquestions');
-            $table->unsignedInteger('totalquestions');
             $table->boolean('pass');
             $table->timestamps();
             $table->unique(['user_id', 'module_id']);

@@ -66,7 +66,7 @@
                 @if ($action == 'edit')
                     {!! Form::open(['action' => ['AdminUsersController@destroy', $user->id], 'method' => 'POST']) !!}
                         {!! Form::hidden('_method', 'DELETE') !!}
-                        <button type="submit" class="red right waves-effect waves-light btn"> {{ "Delete User" }}</button>
+                        <button type="submit" class="red right waves-effect waves-light btn">Delete User</button>
                     {!! Form::close() !!}    
                 @endif
             </div>

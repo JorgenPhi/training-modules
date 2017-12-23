@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function results() {
         return $this->hasMany('App\QuizResult');
     }
+
+    public function bestResults() {
+        return $this->hasMany('App\QuizResult')->orderByDesc('correctquestions');
+    }
 }

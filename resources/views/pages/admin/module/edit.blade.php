@@ -37,10 +37,10 @@
                     @endif
                 {!! Form::close() !!}
                 @if ($action == 'edit')
-                    <a href="{{ url('/admin/modules/'.$module->id.'/quiz') }}" class="waves-effect waves-light btn"> {{ "Goto Quiz" }}</a>
+                    <a href="{{ url('/admin/modules/'.$module->id.'/quiz') }}" class="waves-effect waves-light btn">Goto Quiz</a>
                     {!! Form::open(['action' => ['AdminModulesController@destroy', $module->id], 'method' => 'POST']) !!}
                         {!! Form::hidden('_method', 'DELETE') !!}
-                        <button type="submit" class="red right waves-effect waves-light btn"> {{ "Delete Module" }}</button>
+                        <button type="submit" class="red right waves-effect waves-light btn">Delete Module</button>
                     {!! Form::close() !!}    
                 @endif
             </div>
