@@ -21,6 +21,7 @@ class AdminQuizzesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $module_id
      * @return \Illuminate\Http\Response
      */
     public function index($module_id)
@@ -36,6 +37,7 @@ class AdminQuizzesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  int  $module_id
      * @return \Illuminate\Http\Response
      */
     public function create($module_id)
@@ -51,6 +53,7 @@ class AdminQuizzesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $module_id
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $module_id)
@@ -84,7 +87,8 @@ class AdminQuizzesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $module_id
+     * @param  int  $question_id
      * @return \Illuminate\Http\Response
      */
     public function show($module_id, $question_id)
@@ -100,7 +104,8 @@ class AdminQuizzesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $module_id
+     * @param  int  $question_id
      * @return \Illuminate\Http\Response
      */
     public function edit($module_id, $question_id)
@@ -117,7 +122,8 @@ class AdminQuizzesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $module_id
+     * @param  int  $question_id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $module_id, $question_id)
@@ -151,7 +157,8 @@ class AdminQuizzesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $module_id
+     * @param  int  $question_id
      * @return \Illuminate\Http\Response
      */
     public function destroy($module_id, $question_id)

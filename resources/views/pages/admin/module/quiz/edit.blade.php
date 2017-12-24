@@ -79,10 +79,6 @@
                 @endif
             </div>
         </div>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
     <script>
         $(document).ready(function() {
             Materialize.updateTextFields();
