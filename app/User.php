@@ -28,10 +28,10 @@ class User extends Authenticatable
     ];
     
     public function results() {
-        return $this->hasMany('App\QuizResult');
+        return $this->hasMany('App\QuizResult')->orderByDesc('created_at');
     }
 
-    public function bestResults() {
-        return $this->hasMany('App\QuizResult')->orderByDesc('correctquestions');
+    public function getCompleted() {
+        return $this->hasMany('App\QuizResult')->where('quiz_results.pass', '=', true);
     }
 }

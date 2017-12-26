@@ -81,19 +81,18 @@ class UserController extends Controller
         $result = new QuizResult;
         $result->user_id = auth()->user()->id;
         $result->module_id = $module_id;
-        $result->attempt = 1; // TODO
         $result->correctquestions = $correctquestions;
         $result->pass = $pass;
 
         $result->save();
-        return redirect('/modules/'.$module->id.'/quiz/results/latest')->with('success', 'Quiz Graded.');
+        return redirect('/modules/'.$module->id.'/quiz/results')->with('success', 'Quiz Graded.');
     }
 
     // QuizResults
     public function quizresults()
     {
         $user = auth()->user();
-        $modules = $user->results; // TODO
-        return view('pages.module.list', ['modules' => $modules]);
+        $results = $user->results;
+        return view('pages.module.quizresults', ['results' => $results]);
     }
 }
