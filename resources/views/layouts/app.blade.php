@@ -23,8 +23,12 @@
                         @if ( Auth::user()->admin === 1 )
                             <li><a href="{{ url('/admin/modules') }}">Modules</a></li>
                             <li><a href="{{ url('/admin/users') }}">Users</a></li>
+                            <li><a href="{{ url('/admin/results') }}">Results</a></li>
                         @else
-                            <li><a href="{{ url('/modules') }}">Modules</a></li>
+                            @if ( Auth::user()->active === 1 )
+                                <li><a href="{{ url('/modules') }}">Modules</a></li>
+                                <li><a href="{{ url('/results') }}">Results</a></li>
+                            @endif
                         @endif
                         <li>
                             <a href="{{ route('logout') }}"
@@ -46,8 +50,12 @@
                         @if ( Auth::user()->admin === 1 )
                             <li><a href="{{ url('/admin/modules') }}">Modules</a></li>
                             <li><a href="{{ url('/admin/users') }}">Users</a></li>
+                            <li><a href="{{ url('/admin/results') }}">Results</a></li>
                         @else
-                            <li><a href="{{ url('/modules') }}">Modules</a></li>
+                            @if ( Auth::user()->active === 1 )
+                                <li><a href="{{ url('/modules') }}">Modules</a></li>
+                                <li><a href="{{ url('/results') }}">Results</a></li>
+                            @endif
                         @endif
                         <li>
                             <a href="{{ route('logout') }}"

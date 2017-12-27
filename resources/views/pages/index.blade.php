@@ -12,7 +12,12 @@
                     @if ( Auth::user()->admin === 1 )
                         You are an administrator!
                     @else
-                        You are a regular user
+                        @if ( Auth::user()->active === 1 )
+                            You are a regular user
+                        @else
+                            Your account is not activated yet.
+                        @endif
+                        
                     @endif
                 @else
                     You are not logged in!

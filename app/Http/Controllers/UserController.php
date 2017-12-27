@@ -85,7 +85,7 @@ class UserController extends Controller
         $result->pass = $pass;
 
         $result->save();
-        return redirect('/modules/'.$module->id.'/quiz/results')->with('success', 'Quiz Graded.');
+        return redirect('/results')->with('success', 'Quiz Graded.');
     }
 
     // QuizResults
@@ -93,6 +93,6 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $results = $user->results;
-        return view('pages.module.quizresults', ['results' => $results]);
+        return view('pages.results.list', ['results' => $results]);
     }
 }

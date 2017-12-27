@@ -25,10 +25,11 @@ Route::get('/admin', 'AdminController@index');
 Route::resource('/admin/modules', 'AdminModulesController');
 Route::resource('/admin/users', 'AdminUsersController');
 Route::resource('/admin/modules/{module_id}/quiz', 'AdminQuizzesController');
+Route::get('/admin/results', 'AdminController@results');
 
 // User pages
 Route::get('/modules', 'UserController@moduleprogress');
 Route::get('/modules/{id}', 'UserController@module');
 Route::get('/modules/{id}/quiz', 'UserController@quiz');
 Route::post('/modules/{id}/quiz', 'UserController@quizpost');
-Route::get('/modules/{id}/quiz/results', 'UserController@quizresults');
+Route::get('/results', 'UserController@quizresults');
