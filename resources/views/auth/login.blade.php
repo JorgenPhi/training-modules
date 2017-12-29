@@ -45,7 +45,7 @@
                                     <label for="remember" class="active">Remember Me</label>
                             </div>
                         </div>
-                    </div>
+                    </div></br>
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">

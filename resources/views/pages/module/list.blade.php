@@ -11,10 +11,8 @@
                     {{$module->title}}
                 </div>
             </a>
-            @if(count($module->questions) > 0) <?php /* TODO -- If no quiz, change text to "Mark as Complete, and add a complete marker to the DB */ ?>
-                Quiz
-            @endif
         @endforeach
+        {{ $modules->links() }}
     @else
         <div class="row">
             <p>There are no modules.</p>

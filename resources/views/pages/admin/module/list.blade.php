@@ -15,6 +15,7 @@
             <a class="waves-effect waves-light btn-large btn ng-binding ng-scope" style="margin-bottom: 10px; width: 100%;">{{$module->title}}</a>
         </div> */?>
         @endforeach
+        {{ $modules->links() }}
     @else
         <div class="row">
             <p>There are no modules. Would you like to <a href="">create one</a>?</p>

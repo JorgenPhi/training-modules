@@ -29,7 +29,7 @@ class AdminController extends Controller
      */
     public function results()
     {
-        $results = QuizResult::paginate(20); // TODO
+        $results = QuizResult::paginate(20);
         return view('pages.admin.result.list', ['results' => $results]);
     }
 }

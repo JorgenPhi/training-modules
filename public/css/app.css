@@ -27,3 +27,25 @@ form {
   border-color: #ebccd1;
   color:#a94442;
 }
+
+.page-footer {
+  padding-top: 0px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.gold {
+    background-color: #f1b500 !important;
+}
+
+.gold-text {
+    color: #f1b500 !important;
+}

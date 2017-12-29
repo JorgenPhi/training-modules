@@ -22,7 +22,7 @@ class UserController extends Controller
     // ModuleProgress
     public function moduleprogress()
     {
-        $modules = Module::paginate(20); // TODO
+        $modules = Module::paginate(20);
         return view('pages.module.list', ['modules' => $modules]);
     }
 
@@ -73,7 +73,7 @@ class UserController extends Controller
 
         if($totalquestions > 0) {
             $percent = (round($correctquestions / $totalquestions * 100));
-            $pass = $percent >= 66 ? true : false;
+            $pass = ($percent >= config('passpercent', 70)) ? true : false;
         } else {
             $pass = true;
         }

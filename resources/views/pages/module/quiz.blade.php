@@ -1,14 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($errors->any()) <?php /* TODO */ ?>
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+@if ($errors->any())
+    <div class="row" id="alert_box">
+      <div class="col s12 m12">
+        <div class="card red darken-1">
+          <div class="row">
+            <div class="col s12 m10">
+              <div class="card-content white-text">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+          </div>
+          <div class="col s12 m2">
+            <i class="fa fa-times icon_style" id="alert_close" aria-hidden="true"></i>
+          </div>
+        </div>
+       </div>
+      </div>
     </div>
+    <script type="text/javascript">
+        $('#alert_close').click(function(){
+            $( "#alert_box" ).fadeOut( "slow", function() {});
+        });
+    </script>
 @endif
     <h5>{{ $module->title }} - Quiz:</h5>
     {!! Form::open(['action' => ['UserController@quizpost', $module->id], 'method' => 'POST']) !!}

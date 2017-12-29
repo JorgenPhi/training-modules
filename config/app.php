@@ -232,4 +232,28 @@ return [
 
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Manual Activation
+    |--------------------------------------------------------------------------
+    |
+    | This value determines if users must be manually activated in the admin
+    | panel. Useful if your training modules contains IP.
+    |
+    */
+
+    'requireactivation' => env('APP_REQUIREACTIVATION', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Passing Percentage
+    |--------------------------------------------------------------------------
+    |
+    | This value is the lowest percentage a user can get on a quiz and still 
+    | pass. The default value is 70.
+    |
+    */
+
+    'passpercent' => env('APP_PASSPERCENT', 70),
+
 ];

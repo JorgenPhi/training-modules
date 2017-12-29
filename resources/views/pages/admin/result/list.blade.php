@@ -14,7 +14,7 @@
         <tbody>
             @foreach($results as $result)
                 <?php $user = $result->user; $module = $result->module; ?>
-                @if(count($module->questions) > 0))
+                @if(count($module->questions) > 0)
                     <tr>
                         <td>{{ htmlspecialchars($user->email) }}</td>
                         <td>{{ htmlspecialchars($module->title) }}</td>
@@ -26,4 +26,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $results->links() }}
 @endsection

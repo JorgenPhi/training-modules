@@ -24,7 +24,7 @@ class AdminModulesController extends Controller
      */
     public function index()
     {
-        $modules = Module::paginate(20); // TODO
+        $modules = Module::paginate(20);
         return view('pages.admin.module.list', ['modules' => $modules]);
     }
 
