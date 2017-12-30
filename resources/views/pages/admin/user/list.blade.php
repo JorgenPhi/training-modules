@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(session('success'))
+        <script>
+            Materialize.toast('{{session('success')}}', 4000)
+        </script>
+    @endif
     @if(count($users) > 0)
         <table>
             <thead>

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(session('success'))
+        <script>
+            Materialize.toast('{{session('success')}}', 4000)
+        </script>
+    @endif
     <h5>Results:</h5>
     <p>Tap to retake.</p>
     @if(count($results) > 0)
