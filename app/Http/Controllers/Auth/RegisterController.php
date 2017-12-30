@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'company' => $data['company'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'active' => config('requireactivation', true) ? false : true;
+            'active' => config('requireactivation', true) ? false : true
         ]);
     }
 }
