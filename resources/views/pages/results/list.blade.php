@@ -3,7 +3,9 @@
 @section('content')
     @if(session('success'))
         <script>
-            Materialize.toast('{{session('success')}}', 4000)
+            setTimeout(function(){  
+                Materialize.toast('{{session('success')}}', 10000);
+            }, 10);
         </script>
     @endif
     <h5>Results:</h5>
