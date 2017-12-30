@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ModuleBasedTraining;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,10 +35,10 @@ class User extends Authenticatable
     protected $table = 'users';
     
     public function results() {
-        return $this->hasMany('App\QuizResult')->orderByDesc('created_at');
+        return $this->hasMany('ModuleBasedTraining\QuizResult')->orderByDesc('created_at');
     }
 
     public function getCompleted() {
-        return $this->hasMany('App\QuizResult')->where('quiz_results.pass', '=', true);
+        return $this->hasMany('ModuleBasedTraining\QuizResult')->where('quiz_results.pass', '=', true);
     }
 }

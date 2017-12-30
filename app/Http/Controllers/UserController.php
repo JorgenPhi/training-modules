@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ModuleBasedTraining\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Module;
-use App\QuizResult;
+use ModuleBasedTraining\User;
+use ModuleBasedTraining\Module;
+use ModuleBasedTraining\QuizResult;
 
 class UserController extends Controller
 {

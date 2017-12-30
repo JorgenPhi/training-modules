@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ModuleBasedTraining;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +14,9 @@ class Module extends Model
     protected $table = 'modules';
 
     public function questions() {
-    	return $this->hasMany('App\Question');
+    	return $this->hasMany('ModuleBasedTraining\Question');
     }
     public function results() {
-    	return $this->hasMany('App\QuizResult');
+    	return $this->hasMany('ModuleBasedTraining\QuizResult');
     }
 }

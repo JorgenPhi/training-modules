@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,8 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	//factory(App\User::class,10)->create();
-    	//factory(App\Module::class,10)->create();
-    	//factory(App\Question::class,10)->create();
+    	// Create admin user
+        factory(ModuleBasedTraining\User::class)->create(['email' => 'admin@localhost.net', 'admin' => 1, 'active' => 1]);
+        // Create unactivated user
+        factory(ModuleBasedTraining\User::class)->create(['email' => 'unactivated@localhost.net']);
+        // Create 10 activated users
+        factory(ModuleBasedTraining\User::class,10)->create(['active' => 1]);
+        // Create 10 Moudles
+    	factory(ModuleBasedTraining\Module::class,10)->create();
+        // Create 100 questions randomly
+    	factory(ModuleBasedTraining\Question::class,100)->create();
     }
 }

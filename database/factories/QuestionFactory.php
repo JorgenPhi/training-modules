@@ -2,11 +2,9 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Question::class, function (Faker $faker) {
-    static $module_id;
-
+$factory->define(ModuleBasedTraining\Question::class, function (Faker $faker) {
     return [
-        'module_id' => $module_id?: $module_id = 1,
+        'module_id' => $faker->numberBetween(1,10),
         'text' => $faker->sentence(5),
         'a1text' => $faker->word,
         'a2text' => $faker->word,

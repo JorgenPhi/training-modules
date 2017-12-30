@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ModuleBasedTraining;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,9 +15,9 @@ class QuizResult extends Model
     protected $table = 'quiz_results';
 
     public function module() {
-    	return $this->belongsTo('App\Module');
+    	return $this->belongsTo('ModuleBasedTraining\Module');
     }
     public function user() {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('ModuleBasedTraining\User');
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ModuleBasedTraining\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\QuizResult;
+use ModuleBasedTraining\QuizResult;
 
 class AdminController extends Controller
 {

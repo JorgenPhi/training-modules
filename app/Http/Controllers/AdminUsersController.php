@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ModuleBasedTraining\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use ModuleBasedTraining\User;
 
 class AdminUsersController extends Controller
 {

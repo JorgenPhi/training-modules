@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ModuleBasedTraining\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Module;
-use App\Question;
+use ModuleBasedTraining\Module;
+use ModuleBasedTraining\Question;
 
 class AdminQuizzesController extends Controller
 {

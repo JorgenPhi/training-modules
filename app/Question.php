@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ModuleBasedTraining;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +14,7 @@ class Question extends Model
     protected $table = 'questions';
 
     public function module() {
-    	return $this->belongsTo('App\Module');
+    	return $this->belongsTo('ModuleBasedTraining\Module');
     }
 
 }
