@@ -43,5 +43,5 @@
       "value": "false"
     }
   },
-  "addons": ["heroku-postgresql",{"plan": "hobby-dev"}]
+  "addons": ["heroku-postgresql:hobby-dev"],
 }
