@@ -32,8 +32,8 @@ class CreateUsersTable extends Migration
                   'company' => 'Default',
                   'email' => 'test@localhost.net',
                   'password' => bcrypt('secret'),
-                  'admin' => true,
-                  'active' => true),
+                  'admin' => 1,
+                  'active' => 1),
         );
 
         DB::table('users')->insert($models);
