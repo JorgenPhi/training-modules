@@ -22,15 +22,13 @@
       "description": "If users must be manually approved before they can view modules.",
       "value": "false"
     },
+    "APP_LOG": {
+      "description": "Set to errorlog for Heroku compatibility.",
+      "value": "errorlog"
+    },
     "DB_CONNECTION": {
       "description": "Database type.",
       "value": "heroku"
-    },
-    "MAIL_HOST": {
-      "description": "Email server host."
-    },
-    "MAIL_PORT": {
-      "description": "Email server port."
     },
     "MAIL_USERNAME": {
       "description": "Email username."
