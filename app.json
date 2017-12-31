@@ -14,6 +14,9 @@
     "APP_URL": {
       "description": "The url of your app."
     },
+    "APP_KEY": {
+      "description": "Security key. 32 random characters. Get this from your terminal using: php artisan --no-ansi key:generate --show"
+    },
     "APP_PASSPERCENT": {
       "description": "The minimum percentage needed on a quiz to pass.",
       "value": "70"
