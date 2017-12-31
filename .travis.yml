@@ -13,3 +13,11 @@ before_script:
 script:
   - php artisan key:generate
   - vendor/bin/phpunit
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - node_modules
+    - vendor
