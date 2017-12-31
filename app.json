@@ -20,7 +20,7 @@
     },
     "APP_REQUIREACTIVATION": {
       "description": "If users must be manually approved before they can view modules.",
-      "value": "false"
+      "value": "true"
     },
     "APP_LOG": {
       "description": "Set to errorlog for Heroku compatibility.",
