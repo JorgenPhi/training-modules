@@ -3,7 +3,7 @@
   "description": "A simple LMS for training employees.",
   "repository": "https://github.com/JorgenPhi/training-modules",
   "keywords": ["LMS", "learning", "quiz", "quizzes", "module", "training", "PHP", "laravel"],
-  "buildpacks": [{"url": "https://github.com/heroku/heroku-buildpack-php"}],
+  "buildpacks": [{"url": "https://github.com/heroku/heroku-buildpack-php"}, {"url": "https://github.com/heroku/heroku-buildpack-nodejs"}],
   "scripts": {
       "postdeploy": "./provision.sh"
   },
@@ -11,7 +11,7 @@
     "APP_NAME": {
       "description": "The name of your app."
     },
-    "APP_URL" {
+    "APP_URL": {
       "description": "The url of your app."
     },
     "APP_PASSPERCENT": {
@@ -23,22 +23,8 @@
       "value": "false"
     },
     "DB_CONNECTION": {
-      "description": "Database type."
-    },
-    "DB_HOST": {
-      "description": "Database hostname."
-    },
-    "DB_PORT": {
-      "description": "Database port."
-    },
-    "DB_DATABASE": {
-      "description": "Database to use."
-    },
-    "DB_USERNAME": {
-      "description": "Database username."
-    },
-    "DB_PASSWORD": {
-      "description": "Database password."
+      "description": "Database type.",
+      "value": "heroku"
     },
     "MAIL_HOST": {
       "description": "Email server host."
@@ -56,5 +42,6 @@
       "description": "Debugging.",
       "value": "false"
     }
-  }
+  },
+  "addons": ["postgres",{"plan": "heroku-postgresql:hobby-dev"}]
 }
