@@ -24,6 +24,19 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Create admin account
+
+        $models = array(
+            array('name' => 'Default Admin',
+                  'company' => 'Default',
+                  'email' => 'test@localhost.net',
+                  'password' => bcrypt('secret'),
+                  'admin' => true,
+                  'active' => true),
+        );
+
+        DB::table('users')->insert($models);
     }
 
     /**
