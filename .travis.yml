@@ -10,6 +10,9 @@ before_script:
   - php artisan key:generate
   - php artisan migrate
 
+before_install:
+  - mysql -e 'CREATE DATABASE homestead_test;'
+
 script:
   - php artisan key:generate
   - vendor/bin/phpunit
