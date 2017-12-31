@@ -1,0 +1,60 @@
+{
+  "name": "training-modules",
+  "description": "A simple LMS for training employees.",
+  "repository": "https://github.com/JorgenPhi/training-modules",
+  "keywords": ["LMS", "learning", "quiz", "quizzes", "module", "training", "PHP", "laravel"],
+  "buildpacks": [{"url": "https://github.com/heroku/heroku-buildpack-php"}],
+  "scripts": {
+      "postdeploy": "./provision.sh"
+  },
+  "env": {
+    "APP_NAME": {
+      "description": "The name of your app."
+    },
+    "APP_URL" {
+      "description": "The url of your app."
+    },
+    "APP_PASSPERCENT": {
+      "description": "The minimum percentage needed on a quiz to pass.",
+      "value": "70"
+    },
+    "APP_REQUIREACTIVATION": {
+      "description": "If users must be manually approved before they can view modules.",
+      "value": "false"
+    },
+    "DB_CONNECTION": {
+      "description": "Database type."
+    },
+    "DB_HOST": {
+      "description": "Database hostname."
+    },
+    "DB_PORT": {
+      "description": "Database port."
+    },
+    "DB_DATABASE": {
+      "description": "Database to use."
+    },
+    "DB_USERNAME": {
+      "description": "Database username."
+    },
+    "DB_PASSWORD": {
+      "description": "Database password."
+    },
+    "MAIL_HOST": {
+      "description": "Email server host."
+    },
+    "MAIL_PORT": {
+      "description": "Email server port."
+    },
+    "MAIL_USERNAME": {
+      "description": "Email username."
+    },
+    "MAIL_PASSWORD": {
+      "description": "Email password."
+    },
+    "APP_DEBUG": {
+      "description": "Debugging.",
+      "value": "false"
+    }
+  }
+}
