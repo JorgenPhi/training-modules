@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "jorgenphi/training-modules",
+    "description": "A simple LMS for training employees.",
+    "keywords": ["LMS", "learning", "quiz", "quizzes", "module", "training", "PHP", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
