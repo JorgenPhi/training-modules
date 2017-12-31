@@ -12,7 +12,8 @@ class TrustProxies extends Middleware
      *
      * @var array
      */
-    protected $proxies;
+    protected $proxies = ['127.0.0.1']; // This seems like a safe bet.
+
 
     /**
      * Create a new controller instance.
