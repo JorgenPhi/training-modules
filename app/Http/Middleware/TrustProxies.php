@@ -7,6 +7,12 @@ use Fideloper\Proxy\TrustProxies as Middleware;
 
 class TrustProxies extends Middleware
 {
+    /**
+     * The trusted proxies for this application.
+     *
+     * @var array
+     */
+    protected $proxies;
 
     /**
      * Create a new controller instance.
@@ -17,16 +23,9 @@ class TrustProxies extends Middleware
     {   
         if(env('DB_CONNECTION', 'mysql') == 'heroku') {
             // Heroku doesn't give us a list of IPs to trust? Seriously?
-            protected $proxies = '**';
+            $this->proxies = '**';
         }
     }
-    
-    /**
-     * The trusted proxies for this application.
-     *
-     * @var array
-     */
-    protected $proxies;
 
     /**
      * The current proxy header mappings.
