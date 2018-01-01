@@ -13,7 +13,7 @@ A demo is available at https://mbt-demo.jorgen.io/ . The admin username and pass
 
 ## Installation
 
-# Locally (recommended)
+### Locally (recommended)
 
 This assumes you have PHP, composer, a database (MySQL recommened), and a webserver installed.
 
