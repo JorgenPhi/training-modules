@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     	// Create admin user
         //factory(ModuleBasedTraining\User::class)->create(['email' => 'admin@localhost.net', 'admin' => 1, 'active' => 1]);
         // Create unactivated user
-        factory(ModuleBasedTraining\User::class)->create(['email' => 'unactivated@localhost.net']);
+        //factory(ModuleBasedTraining\User::class)->create(['email' => 'unactivated@localhost.net']);
         // Create 10 activated users
         factory(ModuleBasedTraining\User::class,10)->create(['active' => 1]);
         // Create 10 Moudles
