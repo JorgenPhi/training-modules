@@ -21,11 +21,13 @@ cd training-modules
 composer dump-autoload --optimize
 composer install 
 php artisan optimize
-php artisan config:cache
 php artisan route:cache
 cp .env.example .env
 php artisan key:generate```
 Edit .env with the database credentials, name, url, and other settings 
-```php artisan migrate```
+```php artisan config:cache
+chgrp -R www-data storage bootstrap/cache
+chmod -R ug+rwx storage bootstrap/cache
+php artisan migrate```
 
 Now configure your webserver to serve the `/var/www/training-modules/public` directory!

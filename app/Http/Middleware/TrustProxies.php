@@ -22,7 +22,7 @@ class TrustProxies extends Middleware
      */
     public function __construct()
     {   
-        if(env('DB_CONNECTION', 'mysql') == 'heroku') {
+        if(config('database.default') == 'heroku') {
             // Heroku doesn't give us a list of IPs to trust? Seriously?
             $this->proxies = '**';
         }
