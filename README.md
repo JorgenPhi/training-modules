@@ -2,6 +2,8 @@
 
 Training employees on a new product can be hard, especially if you never directly work with them. Larger companies use tools like Litmos  or software provided by the product vendor, but these can be prohibitively expensive, especially for small businesses that need to train potentially hundreds of purchaser employees on their new product. That is why I have taken the next few weeks to build out a simple LMS with essential features for small business vendors.
 
+A demo is available at https://mbt-demo.jorgen.io/ . The admin username and password is `test@localhost.net` / `secret`. The demo is reset nightly.
+
 ## Features
 
 - Simple module and quiz creation
