@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/JorgenPhi/training-modules.svg?branch=master)](https://travis-ci.org/JorgenPhi/training-modules) 
+[![Dependency Status](https://www.versioneye.com/user/projects/5a49bbb40fb24f1861666c18/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5a49bbb40fb24f1861666c18)
 ## Module Based Training
 
 Training employees on a new product can be hard, especially if you never directly work with them. Larger companies use tools like Litmos  or software provided by the product vendor, but these can be prohibitively expensive, especially for small businesses that need to train potentially hundreds of purchaser employees on their new product. That is why I have taken the next few weeks to build out a simple LMS with essential features for small business vendors.
