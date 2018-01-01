@@ -30,4 +30,8 @@ chgrp -R www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
 php artisan migrate```
 
-Now configure your webserver to serve the `/var/www/training-modules/public` directory!
+Now configure your webserver to serve the `/var/www/training-modules/public` directory.
+
+Login, the default admin username and password is `test@localhost.net` / `secret`. Be sure to change this.
+
+
